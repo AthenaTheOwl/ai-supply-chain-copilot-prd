@@ -1,0 +1,8 @@
+flowchart TB
+  NS["North Star<br/>Exceptions resolved within SLA"] --> Triage["Mean time to triage"]
+  NS --> RootCause["Mean time to root-cause hypothesis"]
+  NS --> Escalation["Escalation accuracy<br/>precision and recall"]
+  NS --> Grounding["Citation and grounding pass rate"]
+  NS --> Override["Operator override rate"]
+  NS --> FalseConfidence["False-confidence rate"]
+  NS --> Adoption["Adoption by planner cohort"]

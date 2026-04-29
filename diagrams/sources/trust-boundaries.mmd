@@ -1,0 +1,11 @@
+flowchart TB
+  A["Copilot may do autonomously"] --> A1["Read ERP and TMS data"]
+  A --> A2["Synthesize summaries"]
+  A --> A3["Draft supplier communications"]
+  A --> A4["Generate ERP transaction proposals"]
+  B["Human approval required"] --> B1["Send outbound communication"]
+  B --> B2["Commit ERP write"]
+  B --> B3["Escalate to leadership"]
+  B --> B4["Approve premium cost or customer commitment change"]
+  A4 -. "proposal only" .-> B2
+  A3 -. "draft only" .-> B1

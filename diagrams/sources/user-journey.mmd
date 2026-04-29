@@ -1,0 +1,13 @@
+flowchart LR
+  subgraph Without_Copilot["Without copilot"]
+    W1["Pager alert"] --> W2["Open ERP, TMS, email, supplier portal"]
+    W2 --> W3["Manually infer root cause"]
+    W3 --> W4["Write escalation from scratch"]
+    W4 --> W5["Late or noisy decision"]
+  end
+  subgraph With_Copilot["With copilot"]
+    C1["Exception appears in queue"] --> C2["Context assembled with citations"]
+    C2 --> C3["Ranked root-cause hypotheses"]
+    C3 --> C4["Recommended action and draft escalation"]
+    C4 --> C5["Human approval with audit receipt"]
+  end

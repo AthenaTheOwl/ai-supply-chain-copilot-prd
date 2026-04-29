@@ -1,0 +1,8 @@
+flowchart TB
+  A["Exception event sources<br/>ERP, TMS, supplier portals"] --> B["Copilot ingestion and context builder<br/>RAG over policies, contracts, prior resolutions, supplier history"]
+  B --> C["Agent loop<br/>Planner + tools + answerer"]
+  C --> D["Human review<br/>Planner approves or overrides"]
+  D --> E["Action layer<br/>Emails, ERP proposals, escalation receipts"]
+  C --> F["Audit trail<br/>Context, recommendation, confidence, action, outcome"]
+  D --> F
+  E --> F
