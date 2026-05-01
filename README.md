@@ -23,13 +23,15 @@ examples: [exception ticket](./examples/exception-ticket.md) |
 
 ## 30-second pitch
 
-Supply-chain teams do not need a general chatbot. They need a workflow system
-that notices exceptions, assembles context across ERP, TMS, supplier records,
-contracts, and prior resolutions, then recommends the next action with citations
-and explicit confidence. This PRD defines an AI copilot for exception management:
-read-heavy by default, grounded in operational records, and gated before any
-supplier communication, ERP write, or leadership escalation.
+Supply-chain teams don't need a general chatbot. They need a workflow tool
+that watches for exceptions, pulls context across ERP, TMS, supplier records,
+contracts, and prior resolutions, then recommends the next action with
+citations and explicit confidence.
 
-The product goal is not to replace planners. It is to compress triage time,
-raise escalation quality, and make every recommendation auditable enough that a
+This PRD defines that copilot. Read-heavy by default. Grounded in operational
+records. Gated before any supplier communication, ERP write, or leadership
+escalation.
+
+The goal isn't replacing planners. It's compressing triage time, raising
+escalation quality, and making every recommendation auditable enough that a
 planner can approve, override, or reject it quickly.
