@@ -4,7 +4,7 @@
 
 The product serves three operators who see the same exception through different
 time horizons. The planner owns today's service risk. The sourcing lead owns
-supplier leverage and commercial tradeoffs. The ops director owns customer
+supplier accountability and commercial tradeoffs. The ops director owns customer
 commitments and cross-functional escalation. The copilot must respect those
 differences instead of producing one generic answer.
 
@@ -25,8 +25,8 @@ Current journey:
 6. Write a status note for the morning standup and update the tracker manually.
 
 Pain points: Priya has high event volume and low time per event. She needs a
-ranked view of what changed, not another dashboard. Her core question is "what
-is the next reversible action that protects the SLA?" The copilot-assisted
+ranked view of what changed, not another dashboard. What she needs to answer:
+"what is the next reversible action that protects the SLA?" The copilot-assisted
 journey starts from the exception queue, not a blank prompt. The copilot shows a
 triage summary, likely root-cause hypotheses, cited evidence, missing context,
 and two or three bounded actions. Priya approves a draft supplier email or
@@ -42,7 +42,7 @@ data for future evals.
 ## Marcus, sourcing lead
 
 Marcus owns supplier performance, commercial terms, and corrective-action
-leverage. His trigger is not every late line; it is a pattern: repeated misses
+authority. His trigger is a pattern, not every late line: repeated misses
 from a constrained supplier, a premium-freight dispute, or an exception that may
 require enforcing contract terms.
 
@@ -103,4 +103,4 @@ The design implication is clear: the copilot must be workflow-native and
 role-aware. Priya needs speed and reversible next actions. Marcus needs supplier
 truth and commercial context. Dana needs a crisp decision packet. The same
 underlying data should support all three, but the product surface must answer
-the job each user is actually doing.
+the job each user is doing.

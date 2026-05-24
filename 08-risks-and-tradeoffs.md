@@ -16,8 +16,8 @@ risks below should be reviewed before alpha and again at every launch gate.
 
 ## Hallucinated recommendations
 
-This is the primary product risk. The dangerous failure is not an obviously bad
-answer. It is a confident recommendation that sounds operationally reasonable
+This is the primary product risk. The dangerous failure is a confident
+recommendation that sounds operationally reasonable
 but misses a key contract clause, stale promise date, or customer commitment.
 Mitigation starts with retrieval: the system must know when important source
 classes are absent. It continues with citation enforcement and refusal behavior.
@@ -42,8 +42,8 @@ If the copilot becomes the default narrator of every exception, planners may
 stop building the diagnostic muscle needed for unusual cases. The mitigation is
 deliberate practice. Critical teams should run periodic copilot-off days,
 compare human triage against copilot triage, and require planners to review
-evidence before approval. The product should also explain uncertainty rather
-than hide it behind a clean answer.
+evidence before approval. The product should also surface uncertainty instead
+of hiding it behind a clean answer.
 
 ## ERP integration brittleness
 

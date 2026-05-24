@@ -31,7 +31,7 @@ Mean time to triage measures how long it takes from exception creation to a
 usable first decision brief. This should fall quickly if the product is working.
 Mean time to root-cause hypothesis measures the diagnostic burden. Escalation
 accuracy is split into precision and recall: precision asks whether escalated
-cases really required attention, while recall asks whether the copilot caught
+cases truly required attention, while recall asks whether the copilot caught
 the cases that should have been escalated. Citation and grounding pass rate is a
 quality guardrail. Operator override rate is a usefulness and calibration
 signal. A low override rate with high false confidence is dangerous, while a

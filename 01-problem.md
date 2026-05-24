@@ -25,7 +25,7 @@ Industry data supports the urgency. McKinsey reports that material disruptions
 lasting a month or longer occur every 3.7 years on average and that companies
 can lose almost 45 percent of one year's profits over a decade from supply-chain
 disruptions.[^mckinsey-risk] McKinsey's 2024 supply-chain leader survey also
-found that comprehensive tier-one supplier visibility reached only 60 percent,
+found that full tier-one supplier visibility reached only 60 percent,
 and that once a disruption occurs, companies take about two weeks on average to
 plan and execute a response.[^mckinsey-2024] Gartner has separately argued that
 scenario planning and data visibility are still immature: in a 2024 survey, only
@@ -51,8 +51,8 @@ The problem statement: supply-chain exception teams need a trusted workflow
 layer that can ingest operational signals, retrieve the relevant context,
 explain the likely root cause, recommend a bounded next action, and preserve a
 human approval gate before any external or system-of-record action. The product
-is not a chatbot. It is a decision-support copilot for high-consequence,
-time-sensitive exception work.
+is a decision-support copilot for high-consequence, time-sensitive exception
+work, not a chatbot.
 
 [^mckinsey-risk]: McKinsey Global Institute, ["Risk, resilience, and rebalancing in global value chains"](https://www.mckinsey.com/capabilities/operations/our-insights/risk-resilience-and-rebalancing-in-global-value-chains).
 [^mckinsey-2024]: McKinsey, ["McKinsey Global Supply Chain Leader Survey 2024"](https://www.mckinsey.com/capabilities/operations/our-insights/supply-chain-risk-survey-2024).

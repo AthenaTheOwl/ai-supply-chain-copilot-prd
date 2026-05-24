@@ -60,8 +60,8 @@ Fifth, trust boundaries are not explicit enough. AI features in planning suites
 can be useful, but exception management has high relational and financial risk.
 The system should not send supplier communications, commit ERP writes, or
 escalate to leadership merely because a model generated a confident answer. The
-better target is a workflow copilot: read broadly, synthesize clearly, recommend
-narrowly, draft safely, and require humans for consequential actions.
+better target is a workflow copilot: read broadly, synthesize with citations,
+recommend narrowly, draft safely, and require humans for consequential actions.
 
 The market is moving toward AI-assisted planning, but the product opening is
 more specific than "add chat to SCM." The winning product will make exception

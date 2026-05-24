@@ -27,7 +27,7 @@ distinction behind a single aggregate score.
 
 Citation faithfulness measures whether generated claims are grounded in
 retrieved context. The metric is the percent of claims that are both cited and
-supported by the cited source. The eval harness should sample claims about
+supported by the cited source. The eval framework should sample claims about
 dates, quantities, supplier commitments, customer impact, cost, contract terms,
 and policy constraints. A recommendation that says "supplier missed the promise
 date" must cite the promise date and the actual milestone. If the cited source
@@ -83,6 +83,6 @@ Production evals should combine automated checks and human review. Automated
 checks include uncited-claim detection, retrieval coverage, action-gate
 enforcement, latency, and permission violations. Human review samples closed
 exceptions weekly and asks whether the copilot helped, hurt, or merely
-summarized. The strongest signal is not model applause. It is whether planners
-resolve exceptions faster without increasing overrides, false escalations, or
-relationship damage.
+summarized. The strongest signal is whether planners resolve exceptions faster
+without increasing overrides, false escalations, or relationship damage. Model
+applause is the wrong measure.
