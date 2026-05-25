@@ -1,0 +1,24 @@
+name: gates
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  markdown-gates:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v4
+
+      - name: setup python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: voice_lint
+        run: python scripts/voice_lint.py
+
+      - name: check_no_bom
+        run: python scripts/check_no_bom.py
