@@ -22,3 +22,15 @@ jobs:
 
       - name: check_no_bom
         run: python scripts/check_no_bom.py
+
+      - name: setup node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+
+      - name: install
+        run: npm ci
+
+      - name: build
+        run: npm run build

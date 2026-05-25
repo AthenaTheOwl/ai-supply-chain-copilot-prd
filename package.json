@@ -1,0 +1,22 @@
+{
+  "name": "ai-supply-chain-copilot-prd",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 0.0.0.0",
+    "build": "vite build",
+    "preview": "vite preview --host 0.0.0.0",
+    "voice_lint": "python scripts/voice_lint.py",
+    "check_no_bom": "python scripts/check_no_bom.py",
+    "gates": "npm run voice_lint && npm run check_no_bom && npm run build"
+  },
+  "dependencies": {
+    "react": "^19.2.6",
+    "react-dom": "^19.2.6"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^6.0.2",
+    "vite": "^8.0.14"
+  }
+}

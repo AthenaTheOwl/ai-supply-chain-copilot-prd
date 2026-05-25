@@ -4,9 +4,9 @@ Not a chatbot. A product teardown and PRD for an AI copilot that helps
 supply-chain teams triage exceptions, explain root causes, recommend
 actions, and escalate with receipts.
 
-This is a markdown-only PRD — no code, no demo. The artifact is the
-judgment and build path: who the user is, what the workflow looks like,
-what the trust boundaries are, what success means, what the risks are,
+This is a markdown-first PRD with a tiny runnable prototype. The artifact is
+still the judgment and build path: who the user is, what the workflow looks
+like, what the trust boundaries are, what success means, what the risks are,
 and how the existing portfolio blocks would assemble into the product.
 
 ## Read in order
@@ -31,6 +31,19 @@ and how the existing portfolio blocks would assemble into the product.
 9. [Build plan](./09-build-plan.md) - Concrete phases that map
    procurement-negotiation-lab, supplier-risk-rag-agent,
    chip-supply-chain-map, and ai-field-brief/CDCP into the product.
+
+## Prototype
+
+```bash
+npm install
+npm run build
+npm run dev
+```
+
+The app is static Vite React. It uses synthetic fixture data only: no backend,
+no auth, no supplier email, no live ERP, and no paid API dependency. The first
+screen shows an exception queue, cited evidence snippets, bounded recommended
+actions, and approval gates before any external action.
 
 ## For your role
 
