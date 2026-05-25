@@ -5,8 +5,9 @@ supply-chain teams triage exceptions, explain root causes, recommend
 actions, and escalate with receipts.
 
 This is a markdown-only PRD — no code, no demo. The artifact is the
-judgment: who the user is, what the workflow looks like, what the
-trust boundaries are, what success means, what the risks are.
+judgment and build path: who the user is, what the workflow looks like,
+what the trust boundaries are, what success means, what the risks are,
+and how the existing portfolio blocks would assemble into the product.
 
 ## Read in order
 
@@ -27,6 +28,9 @@ trust boundaries are, what success means, what the risks are.
    star + input metrics + phased alpha/beta/GA + rollback criteria.
 8. [Risks and tradeoffs](./08-risks-and-tradeoffs.md) — Six risks,
    each with likelihood + impact + mitigation + residual risk.
+9. [Build plan](./09-build-plan.md) - Concrete phases that map
+   procurement-negotiation-lab, supplier-risk-rag-agent,
+   chip-supply-chain-map, and ai-field-brief/CDCP into the product.
 
 ## For your role
 
@@ -46,16 +50,18 @@ minutes. It is a real planner's day, not a hypothetical.
 **Engineering leader.** §4 (numbered requirements with acceptance) plus
 §5 (architecture with trust boundaries) plus §6 (eval methodology). The
 trust-boundary discussion is where the PRD departs from "wrap an LLM
-around it" PRDs.
+around it" PRDs. Section 9 maps the implementation sequence to existing
+portfolio blocks.
 
 ## Governance
 
 This repo is part of a portfolio that runs the [Cognitive Delivery
 Control Plane](https://github.com/AthenaTheOwl/athena-site/blob/main/ops/control-plane.md)
 operating model. The other product repos (ai-field-brief,
-procurement-negotiation-lab, supplier-risk-rag-agent) carry the same
-shape with code; this PRD lives at the artifact-only end of the
-spectrum.
+procurement-negotiation-lab, supplier-risk-rag-agent,
+chip-supply-chain-map) carry the same shape with code; this PRD lives at
+the artifact-only end of the spectrum and now names how those blocks
+would support a build.
 
 The discipline visible here: every requirement names a P0/P1/P2
 priority. Every system component names a trust boundary. Every eval
