@@ -50,6 +50,37 @@ rollback: |
   false-confidence rollback criteria in section 7 so that autonomous
   actions can be gated by confidence threshold instead of human
   approval. Each of those changes would require fresh risk review.
+systems_map: |
+  Asymmetric blast radius for outbound actions: the downside of a
+  hallucinated supplier message is unbounded (relationship damage,
+  contract dispute, freight liability) while the upside of automation
+  is bounded (a few seconds of planner time). The decision draws the
+  human-in-the-loop line where the asymmetry lives.
+transferable_principle: |
+  In any agentic product whose actions touch external counterparties
+  with multi-year relationships or contractual exposure, a named human
+  approver gates execution; the model proposes, the human commits.
+falsification_test: |
+  If a six-month alpha shows the human approval gate rejects under one
+  percent of drafted supplier actions and adds median latency below
+  ten seconds with no observed save from a near-miss, the gate's cost
+  is not earning its keep and a confidence-threshold autonomy tier
+  becomes defensible.
+adoption_ladder:
+  minimum_viable: |
+    The action layer ships with a single autonomy mode (proposes only)
+    and a named-approver field on every outbound action.
+  mid_adoption: |
+    Eval suite measures false-confidence and override rates per
+    action class; trust model gates expanded action classes on the
+    measured rate.
+  full_adoption: |
+    Approver workflow tied to ERP identity; audit log of approve and
+    reject decisions feeds the trust model and the postmortem record.
+  monitoring_signals:
+    - "share of actions auto-executed (target: zero)"
+    - approver override rate per action class
+    - near-miss incidents caught by the human gate
 ---
 
 ## decision

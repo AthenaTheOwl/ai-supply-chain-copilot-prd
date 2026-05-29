@@ -46,6 +46,32 @@ rollback: |
   security section. That would require rewriting the autonomy
   boundaries section in section 6, because the refusal contract and
   action-gate enforcement depend on component-level trust statements.
+systems_map: |
+  AI systems fail at component seams, not at a perimeter. Naming the
+  trust boundary inside each component spec turns architecture into a
+  contract surface that downstream eval and refusal work can reference.
+transferable_principle: |
+  Any AI product PRD should locate trust boundaries inside each
+  component spec, not in a separate security appendix.
+falsification_test: |
+  If a postmortem of an alpha incident traces the failure to a
+  component whose stated trust boundary covered the failure mode, the
+  per-component naming did not earn its weight and a perimeter-style
+  statement would have been sufficient.
+adoption_ladder:
+  minimum_viable: |
+    Every component subsection in section 5 ends with a one-line
+    trust-boundary statement.
+  mid_adoption: |
+    Section 6 refusal contract references the component boundaries by
+    name; section 8 risk table cross-references the same boundaries.
+  full_adoption: |
+    Each component boundary maps to a deterministic policy check in
+    the action layer and an eval slice in the trust model.
+  monitoring_signals:
+    - count of section-5 components without a trailing trust-boundary line
+    - count of section-6 refusal rules that do not cite a boundary
+    - alpha postmortems traced to an unnamed seam
 ---
 
 ## decision

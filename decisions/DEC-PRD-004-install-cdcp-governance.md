@@ -86,6 +86,39 @@ rollback: |
   npm test) all stay untouched. No cross-repo dependency is created
   that other repos rely on: the schemas-cache is a read mirror, not a
   source of truth.
+systems_map: |
+  Install-depth as a deliberate axis: a repo can join a cross-repo
+  governance grid at the smallest layer that earns its weight, not at
+  the depth a sibling chose. The schemas-cache plus validator pair is
+  the base layer; specs ledgers, role contracts, and Run emitters are
+  optional deepenings behind explicit DEC amendments.
+transferable_principle: |
+  Cross-repo control-plane discipline should support a graded install:
+  static-document repos run the base validators, full-stack repos run
+  the operating-model layer, and each tier is named so a future agent
+  cannot silently slide the repo upward or downward.
+falsification_test: |
+  If a portfolio-wide audit at six months finds that
+  minimum_static_grid repos either drift out of schema sync or carry
+  the same incident class that the operating-model layer was supposed
+  to gate, the graded install was the wrong factoring and the
+  portfolio should converge on a single depth.
+adoption_ladder:
+  minimum_viable: |
+    schemas-cache + check_schema_cache_freshness.py +
+    validate_decisions.py + AGENTS.md naming the install-depth.
+  mid_adoption: |
+    Add a specs/0001-prd/ six-file ledger plus a static PRD manifest
+    hash gate (lands as an amendment to this DEC if the PRD grows
+    machine-consumed structure).
+  full_adoption: |
+    Run emitter for the Vite prototype if it gains a deployed
+    inference surface, plus role contracts and policy YAMLs for the
+    action layer (lands as a further amendment).
+  monitoring_signals:
+    - schema-cache-freshness gate exit code on every push
+    - validate-decisions warning and error counts per week
+    - whether the prototype gains a deployed inference surface
 ---
 
 ## decision
