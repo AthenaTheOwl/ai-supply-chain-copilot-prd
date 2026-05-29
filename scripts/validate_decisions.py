@@ -132,6 +132,13 @@ def main() -> int:
         return 0
 
     violations: list[str] = []
+    warnings: list[str] = []
+    systems_fields = (
+        "systems_map",
+        "transferable_principle",
+        "falsification_test",
+        "adoption_ladder",
+    )
     for dec_path in decisions:
         rel = dec_path.relative_to(ROOT).as_posix()
         data, err = parse_front_matter(dec_path)
@@ -152,6 +159,24 @@ def main() -> int:
         for err_obj in errors:
             location = "/".join(str(part) for part in err_obj.absolute_path) or "<root>"
             violations.append(f"{rel}: {location}: {err_obj.message}")
+
+        # Per DEC-CDCP-020: warn when an approved DEC is missing any of the
+        # four systems-thinking fields. Warning only; exit code stays 0.
+        if data.get("status") == "approved":
+            missing = [f for f in systems_fields if not data.get(f)]
+            if missing:
+                warnings.append(
+                    f"{rel}: missing systems-thinking field(s): "
+                    f"{', '.join(missing)} (per DEC-CDCP-020; warning only)"
+                )
+
+    if warnings:
+        print(
+            "validate_decisions: DEC-CDCP-020 systems-thinking warnings",
+            file=sys.stderr,
+        )
+        for w in warnings:
+            print(f"  - {w}", file=sys.stderr)
 
     if violations:
         print("validate_decisions: violations found", file=sys.stderr)

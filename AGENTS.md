@@ -13,6 +13,21 @@ PRD-craft DEC ledger under `decisions/`, three example fixtures under
 `examples/`, three SVG diagrams under `diagrams/`, and a static Vite
 React prototype under `src/`.
 
+## Systems-thinking discipline (per DEC-CDCP-020)
+
+Per DEC-CDCP-020 in athena-site, every substantive DEC + dream candidate
++ Run record in this repo SHOULD carry four fields:
+
+- `systems_map`: what underlying mechanism does this expose?
+- `transferable_principle`: what generalizes beyond this decision?
+- `falsification_test`: what would prove this wrong?
+- `adoption_ladder`: `minimum_viable` -> `mid_adoption` -> `full_adoption`
+  plus `monitoring_signals`
+
+All four fields are optional in the schema. The validator emits a
+warning when missing on new DECs. After 30 days, the warning ratchets to
+failure via amendment DEC.
+
 ## CDCP install-depth
 
 This repo runs at install-depth `minimum_static_grid`. That choice is
