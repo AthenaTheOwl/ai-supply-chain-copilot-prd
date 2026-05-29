@@ -1,4 +1,4 @@
-name: gates
+name: run-evidence-gates
 
 on:
   push:
@@ -6,7 +6,8 @@ on:
   pull_request:
 
 jobs:
-  markdown-gates:
+  cdcp-gates:
+    name: cdcp gates
     runs-on: ubuntu-latest
     steps:
       - name: checkout
@@ -17,11 +18,27 @@ jobs:
         with:
           python-version: "3.11"
 
-      - name: voice_lint
+      - name: install python deps
+        run: pip install pyyaml jsonschema
+
+      - name: schema-cache freshness
+        run: python scripts/check_schema_cache_freshness.py
+
+      - name: voice lint
         run: python scripts/voice_lint.py
 
-      - name: check_no_bom
+      - name: bom check
         run: python scripts/check_no_bom.py
+
+      - name: validate decisions
+        run: python scripts/validate_decisions.py
+
+  prototype-build:
+    name: prototype build and test
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v4
 
       - name: setup node
         uses: actions/setup-node@v4
