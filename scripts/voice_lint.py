@@ -185,6 +185,7 @@ ALLOWLIST_RE = re.compile(r"voice_lint:allow\s+([A-Za-z0-9\-_ ]+)")
 # Target globs for this markdown-only PRD repo.
 TARGETS = [
     "README.md",
+    "AGENTS.md",
     "01-problem.md",
     "02-users-and-workflows.md",
     "03-current-state.md",
@@ -193,6 +194,7 @@ TARGETS = [
     "06-eval-and-trust-model.md",
     "07-metrics-and-launch-plan.md",
     "08-risks-and-tradeoffs.md",
+    "09-build-plan.md",
     "examples/*.md",
     "decisions/*.md",
 ]
