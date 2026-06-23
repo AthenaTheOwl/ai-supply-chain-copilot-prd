@@ -45,6 +45,30 @@ no auth, no supplier email, no live ERP, and no paid API dependency. The first
 screen shows an exception queue, cited evidence snippets, bounded recommended
 actions, and approval gates before any external action.
 
+## Live demo
+
+Deploy the prototype to Vercel with:
+
+```text
+build command: npm run build
+output directory: dist
+```
+
+Local verification:
+
+```bash
+npm install
+npm run test:smoke
+npm run build
+```
+
+## Connects to
+
+- `supplier-risk-rag-agent` for cited supplier-risk retrieval and refusal behavior.
+- `chip-supply-chain-map` for dependency graph context and watchlist risk packets.
+- `procurement-negotiation-lab` for approval gates and negotiation mechanics after an exception is triaged.
+- `ai-field-brief` for the weekly operating cadence and source registry discipline.
+
 ## For your role
 
 **Hiring manager.** Five minutes: skim §1 and §6. §1 names a concrete
