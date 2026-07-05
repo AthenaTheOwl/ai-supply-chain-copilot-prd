@@ -9,6 +9,7 @@
     "preview": "vite preview --host 0.0.0.0",
     "test": "vitest run --environment jsdom",
     "test:smoke": "vitest run --environment jsdom src/App.smoke.test.jsx",
+    "eval:scorecard": "python scripts/eval_scorecard.py",
     "voice_lint": "python scripts/voice_lint.py",
     "check_no_bom": "python scripts/check_no_bom.py",
     "gates": "npm run voice_lint && npm run check_no_bom && npm run build && npm test"
@@ -24,3 +25,4 @@
     "vitest": "^4.1.7"
   }
 }
+

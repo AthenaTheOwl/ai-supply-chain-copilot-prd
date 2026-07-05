@@ -70,7 +70,15 @@ Every requirement has a priority. Every system component has a trust boundary. E
 - [exception-ticket.md](./examples/exception-ticket.md) - realistic input.
 - [copilot-response-good.md](./examples/copilot-response-good.md) - ideal response with citations.
 - [copilot-response-bad.md](./examples/copilot-response-bad.md) - worked failure case plus analysis.
+- [eval-scorecard/](./examples/eval-scorecard) - runnable scorecard for the trust model in section 06.
+
+Run the scorecard:
+
+```bash
+python scripts/eval_scorecard.py
+```
 
 ## License
 
 MIT.
+
