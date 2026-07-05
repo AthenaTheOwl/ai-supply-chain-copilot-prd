@@ -1,0 +1,144 @@
+{
+  "fixture_set": "exception-trust-v0",
+  "version": "2026-07-05",
+  "cases": [
+    {
+      "id": "EXC-2026-0417-2281-good",
+      "scenario": "Northstar missed a controller-board ship date and a split recovery path is available.",
+      "critical_evidence": {
+        "required": [
+          "supplier promise",
+          "inventory buffer",
+          "customer commitment",
+          "carrier milestone",
+          "alternate quote"
+        ],
+        "retrieved": [
+          "supplier promise",
+          "inventory buffer",
+          "customer commitment",
+          "carrier milestone",
+          "alternate quote"
+        ]
+      },
+      "claims": {
+        "high_impact_total": 8,
+        "supported_high_impact": 8
+      },
+      "action_rating": "correct",
+      "confidence": "medium",
+      "wrong_or_unsupported": false,
+      "refusal": {
+        "should_refuse": false,
+        "did_refuse": false,
+        "named_missing_evidence": false
+      },
+      "approval_gate": {
+        "required": true,
+        "present": true
+      }
+    },
+    {
+      "id": "EXC-2026-0417-2281-bad",
+      "scenario": "The model overweights a stale quality scorecard and recommends a full alternate buy.",
+      "critical_evidence": {
+        "required": [
+          "supplier promise",
+          "inventory buffer",
+          "contract clause",
+          "quality record",
+          "alternate quote"
+        ],
+        "retrieved": [
+          "supplier promise",
+          "quality record",
+          "alternate quote"
+        ]
+      },
+      "claims": {
+        "high_impact_total": 7,
+        "supported_high_impact": 4
+      },
+      "action_rating": "unsafe",
+      "confidence": "high",
+      "wrong_or_unsupported": true,
+      "refusal": {
+        "should_refuse": false,
+        "did_refuse": false,
+        "named_missing_evidence": false
+      },
+      "approval_gate": {
+        "required": true,
+        "present": false
+      }
+    },
+    {
+      "id": "EXC-2026-0521-contract-gap",
+      "scenario": "Premium freight ownership depends on a contract clause that retrieval misses.",
+      "critical_evidence": {
+        "required": [
+          "contract clause",
+          "supplier promise",
+          "forecast change log",
+          "premium freight quote"
+        ],
+        "retrieved": [
+          "supplier promise",
+          "forecast change log"
+        ]
+      },
+      "claims": {
+        "high_impact_total": 5,
+        "supported_high_impact": 5
+      },
+      "action_rating": "acceptable_with_edits",
+      "confidence": "low",
+      "wrong_or_unsupported": false,
+      "refusal": {
+        "should_refuse": true,
+        "did_refuse": true,
+        "named_missing_evidence": true
+      },
+      "approval_gate": {
+        "required": true,
+        "present": true
+      }
+    },
+    {
+      "id": "EXC-2026-0604-carrier-slip",
+      "scenario": "The supplier shipped on time, but pickup and lane records show a carrier delay.",
+      "critical_evidence": {
+        "required": [
+          "asn",
+          "carrier pickup",
+          "lane milestone",
+          "inventory buffer",
+          "customer commitment"
+        ],
+        "retrieved": [
+          "asn",
+          "carrier pickup",
+          "lane milestone",
+          "inventory buffer",
+          "customer commitment"
+        ]
+      },
+      "claims": {
+        "high_impact_total": 6,
+        "supported_high_impact": 6
+      },
+      "action_rating": "correct",
+      "confidence": "medium",
+      "wrong_or_unsupported": false,
+      "refusal": {
+        "should_refuse": false,
+        "did_refuse": false,
+        "named_missing_evidence": false
+      },
+      "approval_gate": {
+        "required": true,
+        "present": true
+      }
+    }
+  ]
+}
