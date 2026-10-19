@@ -86,3 +86,16 @@ exceptions weekly and asks whether the copilot helped, hurt, or merely
 summarized. The strongest signal is whether planners resolve exceptions faster
 without increasing overrides, false escalations, or relationship damage. Model
 applause is the wrong measure.
+
+## Approval after an evidence change
+
+Approval binds to the selected exception and the evidence revision reviewed by
+the human. Correcting a cited source invalidates the old approval and staged
+receipt. The reviewer must inspect the changed evidence and approve the current
+revision before staging again. Switching exceptions cannot transfer approval.
+
+The static prototype exercises this with **Simulate corrected evidence**. Its
+smoke test approves and stages a case, corrects a source, verifies the old receipt
+disappears and staging is blocked, then reapproves the new revision. This is a
+synthetic local workflow demonstration; production authorization still requires
+server-side binding, authenticated approvers, and an audit record.

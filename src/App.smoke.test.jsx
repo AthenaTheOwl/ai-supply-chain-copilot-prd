@@ -57,6 +57,27 @@ afterEach(() => {
 });
 
 describe("exception workbench smoke", () => {
+  it("invalidates both approval and staged receipt when cited evidence changes", () => {
+    renderWorkbench();
+    click(getButtonByText("Approve as human"));
+    click(getButtonByText("Stage approved action"));
+    const panel = getSection("Recommendation and gates");
+    assert.match(compactText(panel.querySelector('[role="status"]')), /evidence revision 1/);
+
+    click(getButtonByText("Simulate corrected evidence"));
+    assert.equal(getButtonByText("Approval required").disabled, true);
+    assert.equal(panel.querySelector('[role="status"]'), null);
+    assert.match(compactText(panel.querySelector('[role="alert"]')), /Evidence changed/);
+
+    click(getButtonByText("Capacitor supplier scorecard crossed risk threshold"));
+    assert.match(compactText(panel), /Evidence revision 1/);
+    assert.equal(getButtonByText("Approval required").disabled, true);
+    click(getButtonByText("CTRL-7782 controller boards missed ship commit"));
+    click(getButtonByText("Approve as human"));
+    click(getButtonByText("Stage approved action"));
+    assert.match(compactText(panel.querySelector('[role="status"]')), /evidence revision 2/);
+  });
+
   it("switches exceptions and keeps supplier-facing action behind approval proof gates", () => {
     renderWorkbench();
 

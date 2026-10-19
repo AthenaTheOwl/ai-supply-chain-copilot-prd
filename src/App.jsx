@@ -228,26 +228,35 @@ function App() {
   const [selectedId, setSelectedId] = useState(exceptions[0].id);
   const [approved, setApproved] = useState({});
   const [staged, setStaged] = useState({});
+  const [evidenceRevisions, setEvidenceRevisions] = useState({});
 
   const selected = useMemo(
     () => exceptions.find((item) => item.id === selectedId) ?? exceptions[0],
     [selectedId],
   );
-  const isApproved = Boolean(approved[selected.id]);
-  const isStaged = Boolean(staged[selected.id]);
+  const evidenceRevision = evidenceRevisions[selected.id] ?? 1;
+  const isApproved = approved[selected.id] === evidenceRevision;
+  const isStaged = staged[selected.id] === evidenceRevision;
 
   function approveAction() {
-    setApproved((current) => ({ ...current, [selected.id]: true }));
+    setApproved((current) => ({ ...current, [selected.id]: evidenceRevision }));
   }
 
   function resetAction() {
-    setApproved((current) => ({ ...current, [selected.id]: false }));
-    setStaged((current) => ({ ...current, [selected.id]: false }));
+    setApproved((current) => ({ ...current, [selected.id]: null }));
+    setStaged((current) => ({ ...current, [selected.id]: null }));
   }
 
   function stageAction() {
     if (!isApproved) return;
-    setStaged((current) => ({ ...current, [selected.id]: true }));
+    setStaged((current) => ({ ...current, [selected.id]: evidenceRevision }));
+  }
+
+  function correctEvidence() {
+    setEvidenceRevisions((current) => ({
+      ...current,
+      [selected.id]: (current[selected.id] ?? 1) + 1,
+    }));
   }
 
   return (
@@ -333,17 +342,23 @@ function App() {
             <h2>Source snippets</h2>
           </div>
           <div className="evidence-list">
-            {selected.evidence.map((source) => (
+            {selected.evidence.map((source, index) => (
               <article className="evidence-card" key={source.id}>
                 <div className="source-topline">
                   <span>{source.source}</span>
                   <code>{source.id}</code>
                 </div>
                 <p>{source.snippet}</p>
+                {index === 0 && evidenceRevision > 1 && (
+                  <p>Synthetic correction: the source now requires reconfirmation. Review this recommendation again.</p>
+                )}
                 <span className="freshness">{source.freshness}</span>
               </article>
             ))}
           </div>
+          <button className="secondary" onClick={correctEvidence} type="button">
+            Simulate corrected evidence
+          </button>
         </section>
 
         <aside className="action-panel" aria-label="Recommendation and gates">
@@ -360,6 +375,10 @@ function App() {
               <strong>{selected.action.externalAction}</strong>
             </div>
             <p className="impact">{selected.action.impact}</p>
+            <p>Evidence revision {evidenceRevision}. Approval applies to this revision only.</p>
+            {evidenceRevision > 1 && !isApproved && (
+              <p role="alert">Evidence changed. Review and approve again before staging.</p>
+            )}
             <div className="refs">
               {selected.action.refs.map((ref) => (
                 <code key={ref}>{ref}</code>
@@ -383,7 +402,7 @@ function App() {
             </button>
             {isStaged && (
               <p className="receipt" role="status">
-                Receipt staged: approval token bound to {selected.id}; no live system was called.
+                Receipt staged: approval token bound to {selected.id}, evidence revision {evidenceRevision}; no live system was called.
               </p>
             )}
           </section>
