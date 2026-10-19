@@ -66,7 +66,10 @@ describe("exception workbench smoke", () => {
 
     click(getButtonByText("Simulate corrected evidence"));
     assert.equal(getButtonByText("Approval required").disabled, true);
-    assert.equal(panel.querySelector('[role="status"]'), null);
+    assert.ok(
+      panel.querySelector('[role="status"]') === null,
+      "Expected stale receipt to be cleared",
+    );
     assert.match(compactText(panel.querySelector('[role="alert"]')), /Evidence changed/);
 
     click(getButtonByText("Capacitor supplier scorecard crossed risk threshold"));
@@ -103,7 +106,10 @@ describe("exception workbench smoke", () => {
     const gatedAction = getButtonByText("Approval required");
     assert.equal(gatedAction.disabled, true);
     click(gatedAction);
-    assert.equal(actionPanel.querySelector('[role="status"]'), null);
+    assert.ok(
+      actionPanel.querySelector('[role="status"]') === null,
+      "Expected no receipt before approval",
+    );
 
     click(getButtonByText("Approve as human"));
     const approvedAction = getButtonByText("Stage approved action");
