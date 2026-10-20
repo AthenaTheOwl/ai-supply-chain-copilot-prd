@@ -78,10 +78,10 @@ Run the scorecard:
 python scripts/eval_scorecard.py
 ```
 
-## License
-
-MIT.
-
 ## Evidence corrections and approval
 
 The synthetic workbench binds approval and staged receipts to the reviewed evidence revision. Use **Simulate corrected evidence** after approving a case: staging blocks until the current revision is reviewed and approved again. The [trust model](06-eval-and-trust-model.md#approval-after-an-evidence-change) describes the boundary.
+
+## License
+
+MIT.
